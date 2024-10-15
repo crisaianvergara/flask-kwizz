@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section id="update">
+        <div>
+            <div class="row justify-content-between">
+                <div class="col-4">
+                    <h1>{% block title %}Update{% endblock %}</h1>
+                </div>
+                <div class="col-4 text-end align-self-center">
+                    <form action="{{ url_for('question.delete', id=question['id']) }}" method="post">
+                        <input class="btn btn-danger" type="submit" name="" id="" value="Delete" onclick="return confirm('Are you sure?');">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <form action="" method="post">
+            <div class="mb-3">
+                <label for="question" class="form-label">Question</label>
+                <input type="text" class="form-control" name="question" id="question" value="{{ request.form['question'] or question['question'] }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="answer" class="form-label">Answer</label>
+                <textarea class="form-control" id="answer" name="answer" rows="3" required>{{ request.form['answer'] or question['answer'] }}</textarea>
+            </div>
+            <input class="btn btn-primary" type="submit" value="Save">
+        </form>
+    </section>
+
+{% endblock %}

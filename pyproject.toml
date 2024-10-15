@@ -1,0 +1,11 @@
+[project]
+name = "kwizz"
+version = "1.0.0"
+description = "This app helps you prepare your interviews."
+dependencies = [
+    "flask",
+]
+
+[build-system]
+requires = ["flit_core<4"]
+build-backend = "flit_core.buildapi"
